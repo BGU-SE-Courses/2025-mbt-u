@@ -7,8 +7,8 @@ Feature: A set of scenarios for testing the user stories: Changing a product qua
     Then "<Product>" with quantity "<Quantity>" successfully added to the cart
     And customer navigates to checkout page
     Examples:
-        | email             | password |  Product | Quantity |
-        | hagai@gmail.com   | 123456   |  iMac    | 2        |
+      | email           | password | Product | Quantity |
+      | hagai@gmail.com | 123456   | iMac    | 2        |
 
 
   Scenario Outline: Testing a case where an admin sets the max quantity of a product to 1
@@ -22,5 +22,5 @@ Feature: A set of scenarios for testing the user stories: Changing a product qua
     And Admin clicks on Save
     Then Max quantity successfully set to "<MaxQuantity>"
     Examples:
-      | UserName | Password | Product  | MaxQuantity |
-      | admin    | 1234     | iMac     | 2           |
+      | email | password | Product  | MaxQuantity |
+      | admin    | 1234     | iMac  | 2           |
