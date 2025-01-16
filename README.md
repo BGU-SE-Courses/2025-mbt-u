@@ -49,4 +49,4 @@ We detected the following bugs:
    5. Link to the bug report: (you are encouraged to report the bug to the developers of the software)
 2. Bug 2: ...
 
-$$*TODO* if you did not detect the bug, you should delete this section$$  
+$$*TODO* if you did not detect the bug, you should delete this section$$   
