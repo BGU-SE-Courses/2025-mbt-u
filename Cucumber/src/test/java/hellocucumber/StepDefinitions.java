@@ -164,6 +164,7 @@ public class StepDefinitions {
     // admin navigates to the catalog page
     @And("admin navigates to Catalog")
     public void adminOnCatalog() {
+        // navigate to |||
         WebElement navigationButton = adminWait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[@id='container']/header[@id='header']/div[@class='container-fluid']/button[@id='button-menu']/i[@class='fa-solid fa-bars']")));
         navigationButton.click();
         // find the catalog button and click it
@@ -275,7 +276,7 @@ public class StepDefinitions {
             adminEditsProduct("iMac");
             adminNavigatesToDataTab();
 
-// find the quantity input and fill it with the given quantity
+            // find the quantity input and fill it with the given quantity
             WebElement quantityInput = adminWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@name, \"quantity\")]")));
             ((JavascriptExecutor) adminDriver).executeScript("arguments[0].scrollIntoView(true);", quantityInput);
             Thread.sleep(1000);

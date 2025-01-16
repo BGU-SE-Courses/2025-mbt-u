@@ -1,19 +1,18 @@
-/* @provengo summon selenium */
+//@provengo summon selenium
 
-/**
- * This story opens a new browser window, goes to google.com, and searches for "Pizza".
- */
-bthread('Search', function () {
-  let s = new SeleniumSession('search').start(URL)
-  composeQuery(s, { text: 'Pizza' })
-  startSearch(s)
-})
+bthread('CustomerScenario', function () {
+  let s1 = new SeleniumSession(CUSTOMER_SESSION).start(CUSTOMER_URL);
+  customerLogIn(s1);
+  customerSearchProduct(s1);
+  customerAddToCart(s1);
+  customerNavigateToCheckout(s1);
+});
 
-/**
- * This story opens a new browser window, goes to google.com, and searches for "Pasta" using the "I Feel Lucky" feature.
- */
-bthread('Feeling lucky', function () {
-  let s = new SeleniumSession('lucky').start(URL)
-  composeQuery(s, { text: 'Pasta' })
-  feelLucky(s)
-})
+bthread('AdminScenario', function () {
+  let s2 = new SeleniumSession(ADMIN_SESSION).start(ADMIN_URL);
+  AdminLogin(s2);
+  AdminChooseCatalog(s2);
+  AdminChooseProducts(s2);
+  AdminFilterProducts(s2);
+  AdminEditsProductQuantity(s2);
+});
