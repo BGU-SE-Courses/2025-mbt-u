@@ -41,7 +41,7 @@ const xpath_Admin = {
     loginButton: "//*[@type=\"submit\"]"
   },
   AdminCatalog: {
-    navigateButtons: "/html/body/div[@id='container']/header[@id='header']/div[@class='container-fluid']/button[@id='button-menu']/i[@class='fa-solid fa-bars']",
+    navigateButtons: "//*[@id='navigation']",
     catalogButton: "//*[@id='menu-catalog']/a[1]"
   },
   AdminProducts: {
@@ -72,9 +72,12 @@ const scrolling = {
   up: "window.scrollTo(0, 0);"
 }
 
-const customerMail = "hagai@gmail.com"
-const customerPassword = "123456"
-const adminUsername = "admin"
-const adminPassword = "1234"
-const product = "iMac"
-const quantity = "1"
+const data = {
+  email: "hagai@gmail.com",
+  password: "123456",
+  username: "admin",
+  adminPassword: "chWxz!wd/n2FuJ7{"
+};
+
+const product = "iMac";
+const quantity = "1";

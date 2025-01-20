@@ -1,22 +1,19 @@
 //@provengo summon ctrl
 
 function customerLogIn(session) {
-  sync({request: Event('Start(customerLogIn)')})
-  with(session) {
-    // Login
-    click(xpaths_Customer.HomePage.myAccountButton)
-    click(xpaths_Customer.HomePage.loginButton)
-    // Enter email and password
-    writeText(xpaths_Customer.loginWindow.email, data.email)
-    writeText(xpaths_Customer.loginWindow.password, data.password)
-    // Scroll to the bottom of the page
-    runCode(scrolling.down)
-    // Click the login button
-    click(xpaths_Customer.loginWindow.loginButton)
+  sync({request: Event('Start(customerLogIn)')});
+  with (session) {
+    click(xpaths_Customer.HomePage.myAccountButton);
+    click(xpaths_Customer.HomePage.loginButton);
+    writeText(xpaths_Customer.loginWindow.email, data.email);
+    writeText(xpaths_Customer.loginWindow.password, data.password);
+    runCode(scrolling.down);
+    click(xpaths_Customer.loginWindow.loginButton);
   }
   sync({
     request: Event('End(customerLogIn)'),
-    request: Ctrl.markEvent('End(customerLogIn)')})
+    request: Ctrl.markEvent('End(customerLogIn)')
+  });
 }
 
 function customerSearchProduct(session) {
@@ -76,7 +73,7 @@ function AdminLogin(session) {
   with(session) {
     // Login
     writeText(xpath_Admin.loginWindow.username, data.username)
-    writeText(xpath_Admin.loginWindow.password, data.password)
+    writeText(xpath_Admin.loginWindow.password, data.adminPassword)
     click(xpath_Admin.loginWindow.loginButton)
   }
   sync({
@@ -114,7 +111,7 @@ function AdminFilterProducts(session) {
         waitFor: Event('End(AdminChooseProducts)')})
   with(session) {
     // Filter Products
-    click(xpath_Admin.AdminEditProduct.filterButton)
+    // click(xpath_Admin.AdminEditProduct.filterButton)
     // Search for a product
     writeText(xpath_Admin.AdminEditProduct.AdminChooseSearchButton, product)
     runCode(scrolling.down)
