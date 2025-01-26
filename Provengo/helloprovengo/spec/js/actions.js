@@ -7,7 +7,7 @@ function customerLogIn(session) {
     click(xpaths_Customer.HomePage.loginButton);
     writeText(xpaths_Customer.loginWindow.email, data.email);
     writeText(xpaths_Customer.loginWindow.password, data.password);
-    runCode(scrolling.down);
+    // runCode(scrolling.down);
     click(xpaths_Customer.loginWindow.loginButton);
   }
   sync({
@@ -36,7 +36,7 @@ function customerAddToCart(session) {
         waitFor:  Event('End(customerSearchProduct)')})
   with(session) {
     // Scroll to the bottom of the page
-    runCode(scrolling.down)
+    // runCode(scrolling.down)
     // Wait for clickable to appear
     waitForClickability(xpaths_Customer.ProductPage.addToCartButton)
     // Add product to cart
@@ -53,14 +53,16 @@ function customerAddToCart(session) {
 
 function customerNavigateToCheckout(session) {
   sync({request: Event('Start(customerNavigateToCheckout)'),
+        block:   Event('Start(AdminUpdatedQuantityBeforeCustomer)'),
         waitFor: Event('End(customerAddToCart)')})
   with(session) {
     // Scroll up
-    runCode(scrolling.up)
+    // runCode(scrolling.up)
     // wait for items in cart to appear
     waitForVisibility(xpaths_Customer.clearShoppingCart.cartButton)
     // Navigate to the checkout page
     click(xpaths_Customer.clearShoppingCart.cartButton)
+    click("//*[@id='cart']/div[1]/ul[1]/li[1]/div[1]/p[1]/a[2]/strong[1]")
   }
   sync({
     request:  Event('End(customerNavigateToCheckout)'),
@@ -114,8 +116,8 @@ function AdminFilterProducts(session) {
     // click(xpath_Admin.AdminEditProduct.filterButton)
     // Search for a product
     writeText(xpath_Admin.AdminEditProduct.AdminChooseSearchButton, product)
-    runCode(scrolling.down)
     click(xpath_Admin.AdminEditProduct.confirmEditButton)
+    click("//*[@id='form-product']/div/table/tbody/tr/td/div/a[1]")
 
   }
   sync({
@@ -129,9 +131,9 @@ function AdminEditsProductQuantity(session) {
   with(session) {
     // Edit Product
     click(xpath_Admin.AdminDataTab.dataTab)
-    runCode(scrolling.down)
-    writeText(xpath_Admin.AdminQuantity.quantityInput, quantity)
-    runCode(scrolling.up)
+    // runCode(scrolling.down)
+    writeText(xpath_Admin.AdminQuantity.quantityInput, quantity, clearBeforeWrite=true)
+    // runCode(scrolling.up)
     click(xpath_Admin.AdminSaving.saveButton)
   }
   sync({
@@ -139,6 +141,21 @@ function AdminEditsProductQuantity(session) {
     request: Ctrl.markEvent('End(AdminEditsProductQuantity)')})
 }
 
-
+function AdminUpdatedQuantityBeforeCustomer(session) {
+  sync({request: Event('Start(AdminUpdatedQuantityBeforeCustomer)'),
+        block:   Event('Start(customerNavigateToCheckout)'),
+        waitFor: Event('End(AdminEditsProductQuantity)')})
+  with(session) {
+    // wait for items in cart to appear
+    waitForVisibility(xpaths_Customer.clearShoppingCart.cartButton)
+    // Navigate to the checkout page
+    click(xpaths_Customer.clearShoppingCart.cartButton)
+    waitForVisibility(xpaths_Customer.clearShoppingCart.errorMsg)
+  }
+    sync({
+        request: Event('End(AdminUpdatedQuantityBeforeCustomer)'),
+        //allow:   Event('End(customerNavigateToCheckout)'),
+        request: Ctrl.markEvent('End(AdminUpdatedQuantityBeforeCustomer)')})
+}
 
 

@@ -20,8 +20,8 @@ Feature: A set of scenarios for testing the user stories: Changing a product qua
     And Admin sets the max quantity to 1
     Then Admin clicks on Save - Max quantity successfully set to 1
     Examples:
-      | username      | password  | Product   |
-      | admin         | 1234      | iMac      |
+      | username      | password              | Product   |
+      | admin         | chWxz!wd/n2FuJ7{      | iMac      |
     
 
 

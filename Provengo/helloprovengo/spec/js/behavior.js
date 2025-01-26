@@ -1,13 +1,14 @@
 //@provengo summon selenium
 
-// bthread('CustomerScenario', function () {
-//   let s1 = new SeleniumSession(CUSTOMER_SESSION);
-//   s1.start(CUSTOMER_URL);
-//   customerLogIn(s1);
-//   customerSearchProduct(s1);
-//   customerAddToCart(s1);
-//   customerNavigateToCheckout(s1);
-// })
+bthread('CustomerScenario', function () {
+  let s1 = new SeleniumSession(CUSTOMER_SESSION);
+  s1.start(CUSTOMER_URL);
+  customerLogIn(s1);
+  customerSearchProduct(s1);
+  customerAddToCart(s1);
+  customerNavigateToCheckout(s1);
+  AdminUpdatedQuantityBeforeCustomer(s1);
+})
 
 bthread('AdminScenario', function () {
   let s2 = new SeleniumSession(ADMIN_SESSION);
@@ -18,3 +19,4 @@ bthread('AdminScenario', function () {
   AdminFilterProducts(s2);
   AdminEditsProductQuantity(s2);
 })
+

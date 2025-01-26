@@ -270,7 +270,7 @@ public class StepDefinitions {
         if (adminDriver != null) {
             // close the browser
             adminInDashboard();
-            adminIsLoggedInWithUsernameAndPassword("admin", "1234");
+            adminIsLoggedInWithUsernameAndPassword("admin", "chWxz!wd/n2FuJ7{");
             adminOnCatalog();
             adminClicksProducts();
             adminEditsProduct("iMac");
