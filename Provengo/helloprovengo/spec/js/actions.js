@@ -62,7 +62,7 @@ function customerNavigateToCheckout(session) {
     waitForVisibility(xpaths_Customer.clearShoppingCart.cartButton)
     // Navigate to the checkout page
     click(xpaths_Customer.clearShoppingCart.cartButton)
-    click("//*[@id='cart']/div[1]/ul[1]/li[1]/div[1]/p[1]/a[2]/strong[1]")
+    click(xpaths_Customer.clearShoppingCart.checkoutButton)
   }
   sync({
     request:  Event('End(customerNavigateToCheckout)'),
@@ -117,7 +117,7 @@ function AdminFilterProducts(session) {
     // Search for a product
     writeText(xpath_Admin.AdminEditProduct.AdminChooseSearchButton, product)
     click(xpath_Admin.AdminEditProduct.confirmEditButton)
-    click("//*[@id='form-product']/div/table/tbody/tr/td/div/a[1]")
+    click(xpath_Admin.AdminEditProduct.savingButton)
 
   }
   sync({

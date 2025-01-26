@@ -2,31 +2,40 @@
 This is a repository for the system-testing assignment of the Software Quality Engineering course at the [Ben-Gurion University](https://in.bgu.ac.il/), Israel.
 
 ## Assignment Description
-In this assignment, we tested an open-source software called [$$*TODO* software name$$](https://address-of-the-project.com).
+In this assignment, we tested an open-source software called [opencart](http://localhost/opencartsite/).
 
-$$*TODO* Add some general description about the software$$
+In this assignment, we tested an open-source software called OpenCart. 
+
+OpenCart is an open-source e-commerce platform that allows users to create and manage online stores. 
+
+It provides a robust framework for catalog management, payment integration, and customer management.
+
 
 ## Installation
-$$*TODO* Write instructions on how to install the software and prepare the testing environment$$
+1. Install XAMPP to set up a local web server environment.
+2. Download the OpenCart installation package from OpenCart’s official website.
+3. Set up a MySQL database for OpenCart via phpMyAdmin.
+4. Extract the OpenCart zip file to the htdocs directory in your XAMPP installation.
+5. Start the Apache and MySQL services from the XAMPP Control Panel.
+6. Open your browser and navigate to http://localhost/opencartsite/ to start the OpenCart installation wizard.
+7. Follow the wizard steps to configure the database and administrator account.
+8. Once installed, access the admin dashboard at http://localhost/opencartsite/admin1.
 
 ## What we tested
-$$*TODO* Add a description of the module and the user stories that you chose to test.
-For example, in the case of the Moodle example, you can write something like this:
+We tested the product catalog and checkout module in OpenCart. We chose to test the following user stories:
 
-We tested the quiz module that allows for creating and taking quizzes. We chose to test the following user stories: 
+User story 1: A customer checks out an item with a quantity of 2.
 
-*User story:* A teacher adds a new quiz to the course with two yes/no questions
+Preconditions: The store has at least one product available in the catalog.
 
-*Preconditions:* There is a course with a teacher
+Expected outcome: The item is successfully added to the cart, and the checkout process is completed without errors.
 
-*Expected outcome:* The quiz is added to the course.
 
-*User story:* A students attempts a quiz and answers correctly.
+User story 2: An admin sets the maximum quantity of a product to 1.
 
-*Preconditions:* There is a course with a quiz with two yes/no questions and the quiz grade is calculated automatically and the grade is visible to the students upon submission.
+Preconditions: The admin is logged into the dashboard and navigates to the product catalog.
 
-*Expected outcome:* The student receives 100.
-$$
+Expected outcome: The admin successfully updates the maximum product quantity, and the system enforces the new limit during checkout.
 
 ## How we tested
 We used two different testing methods:
@@ -36,17 +45,18 @@ We used two different testing methods:
 Each of the testing methods is elaborated in its own directory. 
 
 ## Results
-Update all README.md files (except for d-e, see Section 1). Specifically, replace all $$*TODO*…$$ according to the instructions inside the $$.
+Cucumber Results:
+
+User story 1: Passed. 
+The customer was able to add a product with a quantity of 2 to the cart and complete the checkout process.
+
+User story 2: Passed. The admin successfully updated the maximum quantity of the product, and the new limit was enforced during checkout.
+
+Provengo Results:
+The model was analyzed to generate a concise state-space graph, and various test suites were run to ensure comprehensive coverage of the user stories.
+All tests passed with no unexpected behaviors.
 
 ## Detected Bugs
 We detected the following bugs:
 
-1. Bug 1: 
-   1. General description: ...
-   2. Steps to reproduce: ...
-   3. Expected result: ...
-   4. Actual result: ...
-   5. Link to the bug report: (you are encouraged to report the bug to the developers of the software)
-2. Bug 2: ...
-
-$$*TODO* if you did not detect the bug, you should delete this section$$   
+No bugs detected.

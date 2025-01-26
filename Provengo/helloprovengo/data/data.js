@@ -28,6 +28,7 @@ const xpaths_Customer = {
   clearShoppingCart: {
     cartButton: "//*[@id='cart']/div[1]/button[1]",
     removeAllProductsButton: "//*[@id='cart']/div/ul/li/table/tbody/tr/td/form/button[1]",
+    checkoutButton: "//*[@id='cart']/div[1]/ul[1]/li[1]/div[1]/p[1]/a[2]/strong[1]",
     errorMsg: "//div[contains(@class, 'alert alert-danger alert-dismissible')]"
   }
 }
@@ -51,7 +52,8 @@ const xpath_Admin = {
   AdminEditProduct: {
     filterButton: "/html/body/div[@id='container']/div[@id='content']/div[@class='page-header']/div[@class='container-fluid']/div[@class='float-end']/button[@class='btn btn-light d-lg-none']",
     AdminChooseSearchButton: "/html/body/div[2]/div/div[2]/div/div[1]/div/div[2]/form/div[1]/input",
-    confirmEditButton: "//*[@id='button-filter']/i[1]"
+    confirmEditButton: "//*[@id='button-filter']/i[1]",
+    savingButton: "//*[@id='form-product']/div/table/tbody/tr/td/div/a[1]"
   },
   AdminDataTab: {
     dataTab: "//*[@id='form-product']/ul[1]/li[2]/a[1]"
